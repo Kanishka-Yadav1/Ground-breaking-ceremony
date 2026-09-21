@@ -1,0 +1,427 @@
+/*
+  BRAND FONT: Neue Montreal / TT Commons
+  ....................................................................
+  Both are licensed fonts. Place your licensed web font files in
+  public/fonts/ with the names below and they load automatically. If a
+  file is missing, that face falls back to the brand's system stack
+  (Helvetica Neue, Arial) so the app still renders cleanly.
+*/
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/fonts/NeueMontreal-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/fonts/NeueMontreal-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/fonts/NeueMontreal-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TT Commons Pro";
+  src: url("/fonts/TTCommonsPro-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TT Commons Pro";
+  src: url("/fonts/TTCommonsPro-DemiBold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Card + brand tokens (Brand Guidelines V2.0) */
+  --cream: #fbf8f1; /* card background */
+  --panel: #fffdf8;
+  --navy: #2241a6; /* JSW Blue, headlines & text */
+  --ink: #262626; /* body neutral */
+  --orange: #ff7800; /* hero / CTA / bands */
+  --gold: #ffbe1d;
+  --rose: #f8a5a7; /* corner registration ticks */
+  --sand: #dcc7aa;
+  --line: rgba(34, 65, 166, 0.14);
+
+  --font-sans: "Neue Montreal", "TT Commons Pro", "TT Commons",
+    "Helvetica Neue", Arial, sans-serif;
+  --font-btn: var(--font-sans);
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--cream);
+  color: var(--navy);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 26px 24px 0;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.logo {
+  height: 34px;
+  width: auto;
+  display: block;
+}
+.hairline {
+  height: 1px;
+  background: var(--line);
+  margin: 18px 0 0;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 40px;
+  align-items: center;
+  padding: 42px 0 36px;
+}
+.h1 {
+  font-size: clamp(30px, 4.4vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  margin: 0;
+  color: var(--navy);
+}
+.h1 .accent {
+  color: var(--orange);
+}
+.lead {
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.55;
+  color: var(--navy);
+  opacity: 0.82;
+  max-width: 46ch;
+  margin: 18px 0 0;
+}
+.grad-rule {
+  height: 4px;
+  width: 96px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--orange), var(--gold));
+  margin-top: 22px;
+}
+
+.hero-art {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  margin-left: auto;
+  aspect-ratio: 1;
+}
+.photo-circle {
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 18px 44px rgba(34, 65, 166, 0.16);
+}
+.photo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.circle-orange {
+  position: absolute;
+  top: 0;
+  right: 4%;
+  width: 22%;
+  height: 22%;
+  border-radius: 50%;
+  background: var(--orange);
+}
+.circle-sand {
+  position: absolute;
+  bottom: 6%;
+  left: 2%;
+  width: 12%;
+  height: 12%;
+  border-radius: 50%;
+  background: var(--sand);
+}
+
+/* ---------- Tool ---------- */
+.tool {
+  display: grid;
+  grid-template-columns: 348px 1fr;
+  gap: 32px;
+  align-items: start;
+  padding-bottom: 56px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 22px;
+}
+.step {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin: 0 0 6px;
+}
+.step-title {
+  font-weight: 700;
+  font-size: 15px;
+  margin: 0 0 12px;
+  color: var(--navy);
+}
+.block + .block {
+  margin-top: 22px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+.file input {
+  display: none;
+}
+.file .drop {
+  border: 1.5px dashed var(--line);
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink);
+  cursor: pointer;
+  background: var(--cream);
+  transition: border-color 0.15s;
+}
+.file .drop:hover {
+  border-color: var(--orange);
+}
+.file .drop b {
+  color: var(--navy);
+}
+.thumb {
+  margin-top: 9px;
+  font-size: 12px;
+  color: var(--ink);
+  opacity: 0.75;
+  word-break: break-all;
+}
+
+/* Buttons: orange, radius 10 (brand CTA spec) */
+.btn {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-btn);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.01em;
+  border-radius: 10px;
+  padding: 12px 20px;
+  width: 100%;
+  color: #fff;
+  background: var(--orange);
+  transition: opacity 0.15s, transform 0.05s;
+}
+.btn:hover {
+  opacity: 0.92;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.control {
+  margin-top: 14px;
+}
+.control label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--navy);
+}
+.control input[type="range"] {
+  width: 100%;
+  accent-color: var(--orange);
+}
+.toggles {
+  display: flex;
+  gap: 18px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.toggles label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--navy);
+}
+.toggles input {
+  accent-color: var(--orange);
+  width: 16px;
+  height: 16px;
+}
+.status {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--ink);
+  background: var(--cream);
+  border-radius: 8px;
+  padding: 10px 12px;
+  min-height: 20px;
+  line-height: 1.45;
+}
+
+/* ---------- Stage (framed, like the card's photo frame) ---------- */
+.stage-col {
+  min-width: 0;
+}
+.stage-frame {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 30px;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stage-frame canvas {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 12px 30px rgba(34, 65, 166, 0.14);
+  touch-action: none;
+  cursor: grab;
+}
+.stage-frame canvas:active {
+  cursor: grabbing;
+}
+.placeholder {
+  text-align: center;
+  color: var(--ink);
+  opacity: 0.6;
+  font-size: 14px;
+  padding: 46px 20px;
+  max-width: 40ch;
+}
+
+/* corner registration ticks */
+.tick {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  pointer-events: none;
+}
+.tick svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.tick.tl {
+  top: 10px;
+  left: 10px;
+}
+.tick.tr {
+  top: 10px;
+  right: 10px;
+  transform: scaleX(-1);
+}
+.tick.bl {
+  bottom: 10px;
+  left: 10px;
+  transform: scaleY(-1);
+}
+.tick.br {
+  bottom: 10px;
+  right: 10px;
+  transform: scale(-1, -1);
+}
+
+/* orange caption band, like the card */
+.caption-band {
+  margin-top: 14px;
+  background: var(--orange);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  padding: 15px 18px;
+  border-radius: 6px;
+  letter-spacing: 0.01em;
+}
+.hint {
+  font-size: 12px;
+  color: var(--ink);
+  opacity: 0.65;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* ---------- Footer ---------- */
+.foot-line {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4px 24px 20px;
+  color: var(--navy);
+  font-size: 16px;
+  opacity: 0.85;
+}
+.orange-bar {
+  height: 12px;
+  background: var(--orange);
+  width: 100%;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 30px 0 26px;
+  }
+  .hero-art {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .tool {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
