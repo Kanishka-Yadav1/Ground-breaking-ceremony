@@ -66,7 +66,9 @@ export default function Home() {
     );
     try {
       const mod = await import("@imgly/background-removal");
-      const removeBackground = mod.default;
+            // The ESM build exports removeBackground as a named export (no default);
+      // fall back to .default for the CommonJS interop case.
+      const removeBackground = mod.removeBackground || mod.default;
       const blob = await removeBackground(familyFile);
       const img = new window.Image();
       img.onload = () => {
